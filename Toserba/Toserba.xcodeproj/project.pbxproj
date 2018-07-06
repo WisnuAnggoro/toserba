@@ -12,8 +12,8 @@
 		0FB4865420EE126E00B6ADD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865220EE126E00B6ADD2 /* Main.storyboard */; };
 		0FB4865620EE127000B6ADD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865520EE127000B6ADD2 /* Assets.xcassets */; };
 		0FB4865920EE127000B6ADD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865720EE127000B6ADD2 /* LaunchScreen.storyboard */; };
-		0FB4866520EE182400B6ADD2 /* FirebaseSensitiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4866420EE182400B6ADD2 /* FirebaseSensitiveData.swift */; };
 		0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */; };
+		F769E6B5A9AE27F6F34B743D /* Pods_Toserba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CA459B715456DBB794406C /* Pods_Toserba.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,10 @@
 		0FB4865520EE127000B6ADD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FB4865820EE127000B6ADD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FB4865A20EE127100B6ADD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FB4866420EE182400B6ADD2 /* FirebaseSensitiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSensitiveData.swift; sourceTree = "<group>"; };
 		0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewController.swift; sourceTree = "<group>"; };
+		2E56948BBA19076A4C6620DF /* Pods-Toserba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toserba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toserba/Pods-Toserba.debug.xcconfig"; sourceTree = "<group>"; };
+		59CA459B715456DBB794406C /* Pods_Toserba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toserba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2C0C80775F4473427D0E85E /* Pods-Toserba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toserba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toserba/Pods-Toserba.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F769E6B5A9AE27F6F34B743D /* Pods_Toserba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,8 @@
 			children = (
 				0FB4864D20EE126E00B6ADD2 /* Toserba */,
 				0FB4864C20EE126E00B6ADD2 /* Products */,
+				B50F1B74DBEC3A9C791AE8D0 /* Pods */,
+				ACEC2ADA35295BE203D4A420 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +102,25 @@
 		0FB4866320EE166D00B6ADD2 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				0FB4866420EE182400B6ADD2 /* FirebaseSensitiveData.swift */,
 			);
 			path = Secrets;
+			sourceTree = "<group>";
+		};
+		ACEC2ADA35295BE203D4A420 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59CA459B715456DBB794406C /* Pods_Toserba.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B50F1B74DBEC3A9C791AE8D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E56948BBA19076A4C6620DF /* Pods-Toserba.debug.xcconfig */,
+				A2C0C80775F4473427D0E85E /* Pods-Toserba.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FB4865D20EE127100B6ADD2 /* Build configuration list for PBXNativeTarget "Toserba" */;
 			buildPhases = (
+				D94FD5ECD302DD4F546E66D0 /* [CP] Check Pods Manifest.lock */,
 				0FB4864720EE126E00B6ADD2 /* Sources */,
 				0FB4864820EE126E00B6ADD2 /* Frameworks */,
 				0FB4864920EE126E00B6ADD2 /* Resources */,
+				CD8462CA2D96650C2F19FE0C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +191,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD8462CA2D96650C2F19FE0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Toserba/Pods-Toserba-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Toserba/Pods-Toserba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D94FD5ECD302DD4F546E66D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Toserba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FB4864720EE126E00B6ADD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -175,7 +239,6 @@
 			files = (
 				0FB4865120EE126E00B6ADD2 /* LoginViewController.swift in Sources */,
 				0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */,
-				0FB4866520EE182400B6ADD2 /* FirebaseSensitiveData.swift in Sources */,
 				0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +381,7 @@
 		};
 		0FB4865E20EE127100B6ADD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E56948BBA19076A4C6620DF /* Pods-Toserba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +399,7 @@
 		};
 		0FB4865F20EE127100B6ADD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2C0C80775F4473427D0E85E /* Pods-Toserba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
