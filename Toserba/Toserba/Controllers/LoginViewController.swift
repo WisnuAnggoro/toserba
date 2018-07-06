@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    
+    var credential: Credential?
+    
+    var canShopDisplayed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +41,93 @@ class LoginViewController: UIViewController {
             present(alert, animated: false, completion: nil)
         }
         
-        
+        // Login to server
+        login(email: email!, password: password!) { (result) in
+            if(result) {
+                print("login success")
+            }
+            else {
+                print("login failed")
+            }
+            
+            self.canShopDisplayed = result
+//            self.performSegue(withIdentifier: "loginToShop", sender: self)
+        }
     }
     
-    func doSomething(action: UIAlertAction) {
-        //Use action.title
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "loginToShop" {
+            if canShopDisplayed == false {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func login(email: String, password: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        var result = false
+        
+        let loginUrl = FirebaseService.shared.getLoginEndpoint()
+        let url = FirebaseSensitiveData.shared.embedKey(toEndpoint: loginUrl)
+        
+        Alamofire.request(
+            url,
+            method: .post,
+            parameters: ["email": email, "password": password, "returnSecureToken": true],
+            encoding: JSONEncoding.default,
+            headers: ["Content-Type": "application/json"]).responseData { (response) in
+                
+                // ------------ debug ------------
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                }
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                }
+                // -------------------------------
+                
+                if let httpStatusCode = response.response?.statusCode {
+                    if httpStatusCode == 200 {
+                        let json: JSON = JSON(response.result.value!)
+                        
+                        // Create new credential
+                        self.credential = Credential()
+                        self.credential?.kind = json["kind"].stringValue
+                        self.credential?.localId = json["localId"].stringValue
+                        self.credential?.email = json["email"].stringValue
+                        self.credential?.displayName = json["displayName"].stringValue
+                        self.credential?.idToken = json["idToken"].stringValue
+                        self.credential?.refreshToken = json["refreshToken"].stringValue
+                        self.credential?.expiresIn = json["expiresIn"].stringValue
+                        
+                        result = true
+                    }
+                }
+                
+//                if response.result.isSuccess {
+//                    let json: JSON = JSON(response.result.value!)
+//
+//                    // Create new credential
+//                    self.credential = Credential()
+//                    self.credential?.kind = json["kind"].stringValue
+//                    self.credential?.localId = json["localId"].stringValue
+//                    self.credential?.email = json["email"].stringValue
+//                    self.credential?.displayName = json["displayName"].stringValue
+//                    self.credential?.idToken = json["idToken"].stringValue
+//                    self.credential?.refreshToken = json["refreshToken"].stringValue
+//                    self.credential?.expiresIn = json["expiresIn"].stringValue
+//
+//                    result = true
+//                }
+                
+                completionHandler(result)
+            }
     }
 }
 
