@@ -1,0 +1,6 @@
+framework module Pods_Toserba {
+  umbrella header "Pods-Toserba-umbrella.h"
+
+  export *
+  module * { export * }
+}
