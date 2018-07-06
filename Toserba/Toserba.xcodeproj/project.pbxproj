@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F338D2920EF18DA0074D763 /* FirebaseSensitiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */; };
+		0F338D2C20EF1B2D0074D763 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */; };
+		0F338D2E20EF57920074D763 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2D20EF57920074D763 /* Credential.swift */; };
 		0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4864E20EE126E00B6ADD2 /* AppDelegate.swift */; };
 		0FB4865120EE126E00B6ADD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4865020EE126E00B6ADD2 /* LoginViewController.swift */; };
 		0FB4865420EE126E00B6ADD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865220EE126E00B6ADD2 /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSensitiveData.swift; sourceTree = "<group>"; };
+		0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		0F338D2D20EF57920074D763 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		0FB4864B20EE126E00B6ADD2 /* Toserba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toserba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB4864E20EE126E00B6ADD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FB4865020EE126E00B6ADD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F338D2A20EF1B070074D763 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0FB4864220EE126E00B6ADD2 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,7 @@
 				0FB4866120EE12D600B6ADD2 /* Views */,
 				0FB4866220EE12E200B6ADD2 /* Controllers */,
 				0FB4866320EE166D00B6ADD2 /* Secrets */,
+				0F338D2A20EF1B070074D763 /* Services */,
 				0FB4865A20EE127100B6ADD2 /* Info.plist */,
 			);
 			path = Toserba;
@@ -75,6 +90,7 @@
 		0FB4866020EE12BC00B6ADD2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0F338D2D20EF57920074D763 /* Credential.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,6 +118,7 @@
 		0FB4866320EE166D00B6ADD2 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
+				0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -238,8 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FB4865120EE126E00B6ADD2 /* LoginViewController.swift in Sources */,
+				0F338D2C20EF1B2D0074D763 /* FirebaseService.swift in Sources */,
 				0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */,
 				0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */,
+				0F338D2E20EF57920074D763 /* Credential.swift in Sources */,
+				0F338D2920EF18DA0074D763 /* FirebaseSensitiveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
