@@ -48,6 +48,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F02A5D820F35C7C002738DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0F338D2A20EF1B070074D763 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +90,7 @@
 				0FB4866320EE166D00B6ADD2 /* Secrets */,
 				0F338D2A20EF1B070074D763 /* Services */,
 				0FB4865A20EE127100B6ADD2 /* Info.plist */,
+				0F02A5D820F35C7C002738DB /* Supporting Files */,
 			);
 			path = Toserba;
 			sourceTree = "<group>";
@@ -217,11 +225,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Toserba/Pods-Toserba-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,5 +7,6 @@ target 'Toserba' do
   # Pods for Toserba
     pod 'Alamofire'
     pod 'SwiftyJSON'
+    pod 'SVProgressHUD'
 
 end

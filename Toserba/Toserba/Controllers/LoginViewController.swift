@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -42,7 +43,10 @@ class LoginViewController: UIViewController {
         }
         
         // Login to server
+        SVProgressHUD.show()
         login(email: email!, password: password!) { (result) in
+            self.canShopDisplayed = result
+            self.performSegue(withIdentifier: "loginToShop", sender: self)
             if(result) {
                 print("login success")
             }
@@ -50,8 +54,7 @@ class LoginViewController: UIViewController {
                 print("login failed")
             }
             
-            self.canShopDisplayed = result
-//            self.performSegue(withIdentifier: "loginToShop", sender: self)
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -108,23 +111,15 @@ class LoginViewController: UIViewController {
                         
                         result = true
                     }
+                    else {
+                        let alert = UIAlertController(title: "Login Failed", message: "Unknown email or password", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                            
+                        }))
+                        
+                        self.present(alert, animated: false, completion: nil)
+                    }
                 }
-                
-//                if response.result.isSuccess {
-//                    let json: JSON = JSON(response.result.value!)
-//
-//                    // Create new credential
-//                    self.credential = Credential()
-//                    self.credential?.kind = json["kind"].stringValue
-//                    self.credential?.localId = json["localId"].stringValue
-//                    self.credential?.email = json["email"].stringValue
-//                    self.credential?.displayName = json["displayName"].stringValue
-//                    self.credential?.idToken = json["idToken"].stringValue
-//                    self.credential?.refreshToken = json["refreshToken"].stringValue
-//                    self.credential?.expiresIn = json["expiresIn"].stringValue
-//
-//                    result = true
-//                }
                 
                 completionHandler(result)
             }
