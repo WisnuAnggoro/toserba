@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F338D2920EF18DA0074D763 /* FirebaseSensitiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */; };
 		0F338D2C20EF1B2D0074D763 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */; };
 		0F338D2E20EF57920074D763 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F338D2D20EF57920074D763 /* Credential.swift */; };
 		0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4864E20EE126E00B6ADD2 /* AppDelegate.swift */; };
@@ -16,11 +15,13 @@
 		0FB4865620EE127000B6ADD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865520EE127000B6ADD2 /* Assets.xcassets */; };
 		0FB4865920EE127000B6ADD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB4865720EE127000B6ADD2 /* LaunchScreen.storyboard */; };
 		0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */; };
+		9895F9BE20F49E5B008CD7A3 /* FirebaseSensitiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9BD20F49E5B008CD7A3 /* FirebaseSensitiveData.swift */; };
+		9895F9C020F4A117008CD7A3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9BF20F4A117008CD7A3 /* Category.swift */; };
+		9895F9C220F4A9EA008CD7A3 /* DialogBoxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9C120F4A9EA008CD7A3 /* DialogBoxService.swift */; };
 		F769E6B5A9AE27F6F34B743D /* Pods_Toserba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CA459B715456DBB794406C /* Pods_Toserba.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSensitiveData.swift; sourceTree = "<group>"; };
 		0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		0F338D2D20EF57920074D763 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		0FB4864B20EE126E00B6ADD2 /* Toserba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toserba.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +34,9 @@
 		0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewController.swift; sourceTree = "<group>"; };
 		2E56948BBA19076A4C6620DF /* Pods-Toserba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toserba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Toserba/Pods-Toserba.debug.xcconfig"; sourceTree = "<group>"; };
 		59CA459B715456DBB794406C /* Pods_Toserba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toserba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9895F9BD20F49E5B008CD7A3 /* FirebaseSensitiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSensitiveData.swift; sourceTree = "<group>"; };
+		9895F9BF20F4A117008CD7A3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9895F9C120F4A9EA008CD7A3 /* DialogBoxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxService.swift; sourceTree = "<group>"; };
 		A2C0C80775F4473427D0E85E /* Pods-Toserba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toserba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toserba/Pods-Toserba.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,17 +52,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F02A5D820F35C7C002738DB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		0F338D2A20EF1B070074D763 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				0F338D2B20EF1B2D0074D763 /* FirebaseService.swift */,
+				9895F9C120F4A9EA008CD7A3 /* DialogBoxService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -87,10 +85,9 @@
 				0FB4866020EE12BC00B6ADD2 /* Models */,
 				0FB4866120EE12D600B6ADD2 /* Views */,
 				0FB4866220EE12E200B6ADD2 /* Controllers */,
-				0FB4866320EE166D00B6ADD2 /* Secrets */,
 				0F338D2A20EF1B070074D763 /* Services */,
 				0FB4865A20EE127100B6ADD2 /* Info.plist */,
-				0F02A5D820F35C7C002738DB /* Supporting Files */,
+				9895F9BD20F49E5B008CD7A3 /* FirebaseSensitiveData.swift */,
 			);
 			path = Toserba;
 			sourceTree = "<group>";
@@ -99,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				0F338D2D20EF57920074D763 /* Credential.swift */,
+				9895F9BF20F4A117008CD7A3 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,14 +119,6 @@
 				0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		0FB4866320EE166D00B6ADD2 /* Secrets */ = {
-			isa = PBXGroup;
-			children = (
-				0F338D2820EF18DA0074D763 /* FirebaseSensitiveData.swift */,
-			);
-			path = Secrets;
 			sourceTree = "<group>";
 		};
 		ACEC2ADA35295BE203D4A420 /* Frameworks */ = {
@@ -265,11 +255,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FB4865120EE126E00B6ADD2 /* LoginViewController.swift in Sources */,
+				9895F9BE20F49E5B008CD7A3 /* FirebaseSensitiveData.swift in Sources */,
 				0F338D2C20EF1B2D0074D763 /* FirebaseService.swift in Sources */,
+				9895F9C220F4A9EA008CD7A3 /* DialogBoxService.swift in Sources */,
 				0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */,
 				0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */,
 				0F338D2E20EF57920074D763 /* Credential.swift in Sources */,
-				0F338D2920EF18DA0074D763 /* FirebaseSensitiveData.swift in Sources */,
+				9895F9C020F4A117008CD7A3 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

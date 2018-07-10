@@ -12,6 +12,7 @@ class FirebaseSensitiveData {
 
     // Sensitive data
     let apiKey = "" // Provide Firebase Api Key
+    let projectId = "toserba-c1445" // Provide project ID to be included in database URL address
 
     // Methods
     func embedKey(toEndpoint endpoint: String) -> String{

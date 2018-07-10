@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     
     var credential: Credential?
+    var categories: [Category] = []
     
     var canShopDisplayed = false
 
@@ -24,37 +25,32 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func onLoginTapped(_ sender: UIButton) {
         let email = emailText.text
         let password = passwordText.text
         
         if (email == "" || password == "") {
-            let alert = UIAlertController(title: "Email", message: "No email address", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (response) in
-                
-            }))
-            
-            present(alert, animated: false, completion: nil)
+            DisplayOKOnlyDialogBox(title: "Empty Form", message: "Email or password cannot be blank")
+            return
         }
         
         // Login to server
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "Login to server")
         login(email: email!, password: password!) { (result) in
-            self.canShopDisplayed = result
-            self.performSegue(withIdentifier: "loginToShop", sender: self)
             if(result) {
-                print("login success")
-            }
-            else {
-                print("login failed")
+                SVProgressHUD.dismiss()
+                SVProgressHUD.show(withStatus: "Fetch data from server")
+                self.getCategories(completionHandler: { (result) in
+                    if result {
+                        self.canShopDisplayed = result
+                        self.performSegue(withIdentifier: "loginToShop", sender: self)
+                    }
+                    
+                    SVProgressHUD.dismiss()
+                })
             }
             
-            SVProgressHUD.dismiss()
+            return
         }
     }
     
@@ -81,23 +77,11 @@ class LoginViewController: UIViewController {
             encoding: JSONEncoding.default,
             headers: ["Content-Type": "application/json"]).responseData { (response) in
                 
-                // ------------ debug ------------
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
-                
-                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                    print("Data: \(utf8Text)") // original server data as UTF8 string
-                }
-                // -------------------------------
+                self.DebugAlamofireResponse(response: response)
                 
                 if let httpStatusCode = response.response?.statusCode {
                     if httpStatusCode == 200 {
-                        let json: JSON = JSON(response.result.value!)
+                        let json = JSON(response.result.value!)
                         
                         // Create new credential
                         self.credential = Credential()
@@ -112,17 +96,82 @@ class LoginViewController: UIViewController {
                         result = true
                     }
                     else {
-                        let alert = UIAlertController(title: "Login Failed", message: "Unknown email or password", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (response) in
-                            
-                        }))
-                        
-                        self.present(alert, animated: false, completion: nil)
+                        self.DisplayOKOnlyDialogBox(
+                            title: "Login Failed",
+                            message: "Unknown email or password",
+                            animated: true)
                     }
                 }
                 
                 completionHandler(result)
             }
+    }
+    
+    func getCategories(completionHandler: @escaping (_ success: Bool) -> Void) {
+        guard let idToken = credential?.idToken else {
+            return
+        }
+        var result = false
+        let url = FirebaseService.shared.getCategoriesEndpoint(withIdToken: idToken)
+        
+        Alamofire.request(url).responseData { (response) in
+            
+            if let httpStatusCode = response.response?.statusCode {
+                if httpStatusCode == 200 {
+                    let json = JSON(response.result.value!)
+                    
+                    if let jsonCategories = json["categories"].array {
+                        result = true
+                        
+                        for category in jsonCategories {
+                            let c = Category()
+                            c.id = category["id"].int!
+                            c.name = category["name"].rawString()!
+                            self.categories.append(c)
+                        }
+                    }
+                }
+            }
+            
+            completionHandler(result)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if canShopDisplayed == true {
+            if segue.identifier == "loginToShop" {
+                let nav = segue.destination as! UINavigationController
+                let vc = nav.topViewController as! ShopTableViewController
+                vc.categories = categories
+            }
+        }
+    }
+    
+    func DisplayOKOnlyDialogBox(title: String, message: String, animated : Bool = false) {
+        // Dismiss progress hud if any
+        SVProgressHUD.dismiss()
+        
+        // Display error message
+        let alert = DialogBoxService.shared.OKOnly(
+            withTitle: title,
+            andMessage: message)
+        self.present(alert, animated: animated, completion: nil)
+    }
+    
+    func DebugAlamofireResponse(response: DataResponse<Data>) {
+        // ------------ debug ------------
+        print("Request: \(String(describing: response.request))")   // original url request
+        print("Response: \(String(describing: response.response))") // http url response
+        print("Result: \(response.result)")                         // response serialization result
+        
+        if let json = response.result.value {
+            print("JSON: \(json)") // serialized json response
+        }
+        
+        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+            print("Data: \(utf8Text)") // original server data as UTF8 string
+        }
+        // -------------------------------
     }
 }
 
