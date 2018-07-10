@@ -17,6 +17,7 @@ class FirebaseService {
     
     // Static data
     var identityToolkitBaseAddress = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/"
+    let databaseBaseAddress = "https://" + FirebaseSensitiveData.shared.projectId + "firebaseio.com/"
     
     func getRegistrationEndpoint() -> String{
         return identityToolkitBaseAddress + "signupNewUser"
