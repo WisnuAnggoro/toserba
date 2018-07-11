@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  Product.swift
 //  Toserba
 //
 //  Created by Wisnu Anggoro on 10/07/18.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Category {
-    var id = 0
+class Product {
     var name = ""
-    var products: [Product] = []
+    var price = 0
 }

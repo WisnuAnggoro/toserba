@@ -127,6 +127,18 @@ class LoginViewController: UIViewController {
                             let c = Category()
                             c.id = category["id"].int!
                             c.name = category["name"].rawString()!
+                            
+                            var products: [Product] = []
+                            if let jsonProducts = category["products"].array {
+                                for product in jsonProducts {
+                                    let p = Product()
+                                    p.name = product["name"].rawString()!
+                                    p.price = product["price"].int!
+                                    products.append(p)
+                                }
+                            }
+                            c.products = products
+                            
                             self.categories.append(c)
                         }
                     }

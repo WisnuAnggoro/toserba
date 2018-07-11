@@ -111,6 +111,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="riG-qM-ubj" kind="show" identifier="shopToProducts" id="LRY-eu-UfH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -118,11 +121,42 @@
                             <outlet property="delegate" destination="fEb-vy-2LW" id="bfI-ya-lk6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Bxj-tG-TKC"/>
+                    <navigationItem key="navigationItem" id="Bxj-tG-TKC">
+                        <barButtonItem key="leftBarButtonItem" title="Cart" id="K8o-Bj-KoU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="1aq-e5-asf"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJZ-tW-0Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1566" y="29"/>
+        </scene>
+        <!--Products Table View Controller-->
+        <scene sceneID="oaB-S1-4Bf">
+            <objects>
+                <tableViewController id="riG-qM-ubj" customClass="ProductsTableViewController" customModule="Toserba" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tqA-oF-tIb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5Yj-gq-gOF">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Yj-gq-gOF" id="quv-1h-kwG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="riG-qM-ubj" id="Js2-jv-iLH"/>
+                            <outlet property="delegate" destination="riG-qM-ubj" id="NOd-jv-HNo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69J-Xc-YbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eL2-9l-Tcv">
