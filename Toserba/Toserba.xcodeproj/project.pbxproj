@@ -18,6 +18,8 @@
 		9895F9BE20F49E5B008CD7A3 /* FirebaseSensitiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9BD20F49E5B008CD7A3 /* FirebaseSensitiveData.swift */; };
 		9895F9C020F4A117008CD7A3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9BF20F4A117008CD7A3 /* Category.swift */; };
 		9895F9C220F4A9EA008CD7A3 /* DialogBoxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9C120F4A9EA008CD7A3 /* DialogBoxService.swift */; };
+		9895F9C420F4BBC2008CD7A3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9C320F4BBC2008CD7A3 /* Product.swift */; };
+		9895F9C620F4BD67008CD7A3 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895F9C520F4BD67008CD7A3 /* ProductsTableViewController.swift */; };
 		F769E6B5A9AE27F6F34B743D /* Pods_Toserba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CA459B715456DBB794406C /* Pods_Toserba.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		9895F9BD20F49E5B008CD7A3 /* FirebaseSensitiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSensitiveData.swift; sourceTree = "<group>"; };
 		9895F9BF20F4A117008CD7A3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9895F9C120F4A9EA008CD7A3 /* DialogBoxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxService.swift; sourceTree = "<group>"; };
+		9895F9C320F4BBC2008CD7A3 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		9895F9C520F4BD67008CD7A3 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		A2C0C80775F4473427D0E85E /* Pods-Toserba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toserba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Toserba/Pods-Toserba.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,7 @@
 			children = (
 				0F338D2D20EF57920074D763 /* Credential.swift */,
 				9895F9BF20F4A117008CD7A3 /* Category.swift */,
+				9895F9C320F4BBC2008CD7A3 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				0FB4864E20EE126E00B6ADD2 /* AppDelegate.swift */,
 				0FB4865020EE126E00B6ADD2 /* LoginViewController.swift */,
 				0FB4866620EE1E8400B6ADD2 /* ShopTableViewController.swift */,
+				9895F9C520F4BD67008CD7A3 /* ProductsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,12 +262,14 @@
 			files = (
 				0FB4865120EE126E00B6ADD2 /* LoginViewController.swift in Sources */,
 				9895F9BE20F49E5B008CD7A3 /* FirebaseSensitiveData.swift in Sources */,
+				9895F9C420F4BBC2008CD7A3 /* Product.swift in Sources */,
 				0F338D2C20EF1B2D0074D763 /* FirebaseService.swift in Sources */,
 				9895F9C220F4A9EA008CD7A3 /* DialogBoxService.swift in Sources */,
 				0FB4866720EE1E8400B6ADD2 /* ShopTableViewController.swift in Sources */,
 				0FB4864F20EE126E00B6ADD2 /* AppDelegate.swift in Sources */,
 				0F338D2E20EF57920074D763 /* Credential.swift in Sources */,
 				9895F9C020F4A117008CD7A3 /* Category.swift in Sources */,
+				9895F9C620F4BD67008CD7A3 /* ProductsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

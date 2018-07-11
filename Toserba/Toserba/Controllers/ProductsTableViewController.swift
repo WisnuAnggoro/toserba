@@ -1,61 +1,34 @@
 //
-//  ShopTableViewController.swift
+//  ProductsTableViewController.swift
 //  Toserba
 //
-//  Created by MTMAC18 on 05/07/18.
+//  Created by Wisnu Anggoro on 10/07/18.
 //  Copyright © 2018 Wisnu Anggoro. All rights reserved.
 //
 
 import UIKit
 
-class ShopTableViewController: UITableViewController {
+class ProductsTableViewController: UITableViewController {
     
     var categories: [Category] = []
     var products: [Product] = []
-    
-    var canProductsDisplayed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        canProductsDisplayed = false
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return products.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = categories[indexPath.row].name
+        cell.textLabel?.text = products[indexPath.row].name + " ($" + String(products[indexPath.row].price) + ")"
 
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        products = categories[indexPath.row].products
-        canProductsDisplayed = true
-        performSegue(withIdentifier: "shopToProducts", sender: self)
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "shopToProducts" {
-            return canProductsDisplayed
-        }
-        
-        return true
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "shopToProducts" {
-            let vc = segue.destination as! ProductsTableViewController
-            vc.products = products
-        }
     }
 
     /*
